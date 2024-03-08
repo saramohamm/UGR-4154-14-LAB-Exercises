@@ -5,16 +5,22 @@ void main() {
   int numericalGrade = int.parse(stdin.readLineSync()!);
 
   String letterGrade;
-  if (numericalGrade >= 83) {
-    letterGrade = 'A';
-  } else if (numericalGrade >= 70) {
-    letterGrade = 'B';
-  } else if (numericalGrade >= 60) {
-    letterGrade = 'C';
-  } else if (numericalGrade >= 50) {
-    letterGrade = 'D';
-  } else {
-    letterGrade = 'F';
+  switch (numericalGrade ~/ 10) {
+    case 10:
+    case 9:
+      letterGrade = 'A';
+      break;
+    case 8:
+      letterGrade = 'B';
+      break;
+    case 7:
+      letterGrade = 'C';
+      break;
+    case 6:
+      letterGrade = 'D';
+      break;
+    default:
+      letterGrade = 'F';
   }
 
   print("Your letter grade is: $letterGrade");
